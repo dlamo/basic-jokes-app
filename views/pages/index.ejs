@@ -5,21 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="David de Lamo">
   <title>Basic Jokes App</title>
-
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <h1>Basic Jokes App</h1>
-  <div class="joke">
-    <div class="joke-setup">
-      <% if (joke) { %>
-        <p><%= joke.setup %></p>
-      <% } %>
-    </div>
-    <div class="joke-punchline">
-      <% if (joke) { %>
-        <p><%= joke.punchline %></p>
-      <% } %>
+  <div class="container">
+    <h1>Basic Jokes App</h1>
+    <div class="joke">
+      <div class="joke-setup">
+        <% if (joke) { %>
+          <p><%= joke.setup %></p>
+        <% } %>
+      </div>
+      <div class="joke-punchline">
+        <% if (joke) { %>
+          <p><%= joke.punchline %></p>
+        <% } %>
+      </div>
     </div>
   </div>
 </body>

@@ -10,18 +10,19 @@
 <body>
   <div class="container">
     <h1>Basic Jokes App</h1>
-    <div class="joke">
-      <div class="joke-setup">
+    <div id="joke">
+      <div id="setup">
         <% if (joke) { %>
           <p><%= joke.setup %></p>
         <% } %>
       </div>
-      <div class="joke-punchline">
+      <div id="punchline">
         <% if (joke) { %>
           <p><%= joke.punchline %></p>
         <% } %>
       </div>
     </div>
   </div>
+  <script src="js/index.js"></script>
 </body>
 </html>

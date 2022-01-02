@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-.joke {
+#joke {
   background-image: url('https://t4.ftcdn.net/jpg/01/64/26/17/360_F_164261744_NnHLBEta2yJ4X4X75XjCbRuO1K0CvVZ8.jpg');
   border-radius: 10px;
   color: darkblue;
@@ -21,9 +21,6 @@
   padding: 50px 20px;
 }
 
-.joke-setup {
-}
-
-.joke-punchline {
+#punchline {
   display: none;
 }

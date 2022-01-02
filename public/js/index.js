@@ -6,5 +6,7 @@ jokeCard.addEventListener('click', () => {
   if (setup.style.display !== 'none') {
     setup.style.display = 'none'
     punchline.style.display = 'block'
+  } else {
+    location.reload()
   }
 })

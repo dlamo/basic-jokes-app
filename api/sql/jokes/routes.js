@@ -1,17 +1,18 @@
 import express from 'express'
 
-// import db from '../../config/db.js'
+import { db } from '../../config/db.js'
 
 import jokes from '../../data/jokes.js'
+import { SELECT_RANDOM_JOKE } from './queries.js'
 
 export const router = express.Router()
 
 router.get('/', (req, res) => {
-  // db.query('SELECT * FROM jokes', (err, data) => {
-  //   if (err) throw err
-  //   console.log(data)
-  // })
-
+  db.query(SELECT_RANDOM_JOKE, (err, result) => {
+    if (err) throw err
+    console.log('RESULT', result)
+  })
+  
   const randomIndex = Math.floor(Math.random() * jokes.length)
   const joke = jokes[randomIndex]
   

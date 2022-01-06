@@ -6,6 +6,7 @@ import { router as jokesRouter } from "./sql/jokes/routes.js"
 
 const app = express()
 
+// DB Initial Setup
 initialSetup()
 
 app.use(express.static('public'))

@@ -1,16 +1,16 @@
-import mysql from 'mysql'
+const mysql = require('mysql')
 
-import jokes from '../data/jokes.js'
-import { CREATE_DB_JOKES, CREATE_TABLE_JOKES, INSERT_MANY_JOKES, USE_DB_JOKES } from '../sql/jokes/queries.js'
+const jokes = require('../data/jokes.js')
+const { CREATE_DB_JOKES, CREATE_TABLE_JOKES, INSERT_MANY_JOKES, USE_DB_JOKES } = require('../sql/jokes/queries.js')
 
-export const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  port: 3306
+const db = mysql.createConnection({
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT
 })
 
-export const initialSetup = () => {
+const initialSetup = () => {
   db.connect((err) => {
     if (err) throw err
     console.log('Database is connected successfully!')
@@ -18,11 +18,9 @@ export const initialSetup = () => {
     // INITIAL DB SETUP
     db.query(CREATE_DB_JOKES, (err) => {
       if (err) throw err
-      console.log('Database created!')
 
       db.query(USE_DB_JOKES, (err) => {
         if (err) throw err
-        console.log('Using jokes database...')
 
         db.query(CREATE_TABLE_JOKES, (err) => {
           if (err) throw err
@@ -39,3 +37,5 @@ export const initialSetup = () => {
     })  
   })
 }
+
+module.exports = {db, initialSetup}

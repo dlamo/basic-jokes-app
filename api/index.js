@@ -1,8 +1,9 @@
-import express from "express"
+const express = require('express')
+require('dotenv').config()
 
-import {initialSetup} from './config/db.js'
+const {initialSetup} = require('./config/db.js')
 
-import { router as jokesRouter } from "./sql/jokes/routes.js"
+const { router: jokesRouter } =require("./sql/jokes/routes.js")
 
 const app = express()
 
@@ -13,6 +14,7 @@ app.use(express.static('public'))
 
 app.set('view engine', 'ejs')
 
+// Routers
 app.use("/*", jokesRouter)
 
 app.listen(process.env.PORT || 5000, () => console.log("Server listening..."))

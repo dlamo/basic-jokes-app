@@ -1,20 +1,19 @@
-import express from 'express'
+const express = require('express')
 
-import { db } from '../../config/db.js'
+const { db } = require('../../config/db.js')
 
-import jokes from '../../data/jokes.js'
-import { SELECT_RANDOM_JOKE } from './queries.js'
+const { SELECT_RANDOM_JOKE } = require('./queries.js')
 
-export const router = express.Router()
+const router = express.Router()
 
 router.get('/', (req, res) => {
   db.query(SELECT_RANDOM_JOKE, (err, result) => {
     if (err) throw err
-    console.log('RESULT', result)
+    
+    const joke = result[0]
+    res.render('pages/index', { joke })
   })
   
-  const randomIndex = Math.floor(Math.random() * jokes.length)
-  const joke = jokes[randomIndex]
-  
-  res.render('pages/index', { joke })
 })
+
+module.exports = {router}

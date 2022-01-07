@@ -1,3 +1,5 @@
+// Data extracted from official_joke_api (https://github.com/15Dkatz/official_joke_api/blob/master/jokes/index.json)
+
 const jokes = [
   {
     "id": 1,
@@ -2269,4 +2271,4 @@ const jokes = [
   }
 ]
 
-export default jokes
+module.exports = jokes
